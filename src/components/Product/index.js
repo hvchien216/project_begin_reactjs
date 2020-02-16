@@ -13,6 +13,14 @@ const styles = {
     }
 }
 class Product extends Component {
+    state = {
+        size: '',
+        quantity: 0
+    }
+    handleAddToCart = () => {
+        console.log(this.props.id);
+    }
+
     render() {
         const { id, name, price, imgSrc, classes } = this.props;
         return (
@@ -20,7 +28,7 @@ class Product extends Component {
                 <Link to={`products/${id}`} ><img src={imgSrc} /></Link>
                 <Typography variant="h4" color="primary">{name}</Typography>
                 <Typography variant="h6">{price}</Typography>
-                <Button variant="contained" color="primary">Add</Button>
+                <Button variant="contained" color="primary" onClick={this.handleAddToCart}>Add</Button>
                 <Button style={{ border: "1px solid black" }} variant="outline" color="primary">Details</Button>
             </Box >
         );
